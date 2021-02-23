@@ -1,0 +1,40 @@
+<!-- TODO 2 layout 만들기 (공통 레이아웃) -->
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'My Book Store :: ' + (${title} ?: 'Welcome!')">My Book Store</title>
+
+
+    <!-- Style CDN -->
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/common.css}"/>
+
+    <!-- JS CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/common/common.js}"></script>
+
+
+    <!-- 추후 매 페이지마다 설정할 CDN, style, js 경로를 위한 자리를 표시해둔다. -->
+    <th:block layout:frament="config"></th:block>
+    <th:block layout:frament="css"></th:block>
+    <th:block layout:frament="js"></th:block>
+
+</head>
+
+<body class="bg-dark">
+    <!-- header fragment 를 이곳에 배치 -->
+    <th:block th:replace="common_fragments::header"></th:block>
+
+    <!-- main 을 이곳에 배치 -->
+    <th:block layout:fragment="content" class="bg-light"></th:block>
+    <!-- TODO 3 모든 메인 view는 content라는 이름의 Fragment가 되어야 한다. -->
+
+    <!-- footer fragment 를 이곳에 배치 -->
+    <th:block th:replace="common_fragments::footer"></th:block>
+</body>
+</html>
