@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<!-- TODO 1 index.html 를 fragment로 나누기 -->
-<!-- header fragment -->
-<div th:fragment="header" id="header">
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<!-- fragment 들을 이곳에 모두 선언 -->
+
+<!-- header -->
+<div id="header" th:fragment="header">
+
     <!-- 대문 컨테이너 -->
     <div class="jumbotron jumbotron-fluid bg-dark">
         <div class="container banner">
@@ -18,7 +20,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" th:href="@{/}">로그인</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/}">회원가입</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/signup}">회원가입</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/}">로그아웃</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/}">내정보</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/}">상품목록</a></li>
@@ -47,10 +49,12 @@
 </div>
 
 
-<!-- Footer fragment -->
-<div th:fragment="footer" class="jumbotron text-center bg-dark banner" style="margin-bottom:0">
-    <p>&copy;2020. Sera Lee. All Rights Reserved.</p>
+<!-- footer -->
+<div th:fragment="footer" id="footer" class="jumbotron text-center bg-dark banner" style="margin-bottom: 0">
+    <p style="color: ghostwhite">&copy;2021. Sera Lee. All Rights Reserved.</p>
 </div>
+
+
 
 
 </html>
